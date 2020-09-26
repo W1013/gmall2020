@@ -32,8 +32,13 @@ public class UserServiceIml implements UserService {
     @Override
     public List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId) {
         Example e = new Example(UmsMemberReceiveAddress.class);
-        e.createCriteria().andEqualTo("memberId",memberId);
+        e.createCriteria().andEqualTo("memberId", memberId);
         List<UmsMemberReceiveAddress> umsMemberReceiveAddressList = umsMemberReceiveAddressDao.selectByExample(e);
         return umsMemberReceiveAddressList;
+    }
+
+    @Override
+    public void addMember(UmsMember umsMember) {
+        userDao.insert(umsMember);
     }
 }

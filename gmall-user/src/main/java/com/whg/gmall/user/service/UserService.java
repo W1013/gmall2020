@@ -13,4 +13,5 @@ public interface UserService {
 
     List<UmsMemberReceiveAddress> getReceiveAddressByMemberId(String memberId);
 
+    void addMember(UmsMember umsMember);
 }

@@ -4,6 +4,7 @@ import com.whg.gmall.user.bean.UmsMember;
 import com.whg.gmall.user.bean.UmsMemberReceiveAddress;
 import com.whg.gmall.user.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -28,7 +29,12 @@ public class UserController {
         return umsMemberReceiveAddressList;
     }
 
-    @RequestMapping("getAllUser")
+    @RequestMapping("addMember")
+    public void addMember(@RequestBody UmsMember umsMember) {
+        userService.addMember(umsMember);
+    }
+
+    @RequestMapping("getAllMember")
     public List<UmsMember> getAllUser() {
         List<UmsMember> umsMember = userService.getAllUser();
         return umsMember;
